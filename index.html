@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimalArcade - Premium Pet Marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-left" style="display: flex; align-items: center; gap: 1rem;">
+                    <button id="btn-back" class="btn btn-outline btn-sm hidden"
+                        style="border-color: var(--border-color); color: var(--text-main); padding: 0.4rem 0.8rem;">
+                        <i class="fa-solid fa-arrow-left"></i> Back
+                    </button>
+                    <a href="#" class="logo" id="nav-logo">
+                        <span class="logo-icon-box"><i class="fa-solid fa-paw"></i></span> Animal Arcade
+                    </a>
+                </div>
+
+                <div class="nav-links">
+                    <a href="#" id="nav-home" class="active hidden">Home</a>
+                    <a href="#" id="nav-gallery" class="hidden">Pets</a>
+                    <a href="#" id="nav-add-pet" class="hidden">Post Pet</a>
+                    <a href="#" id="nav-admin" class="hidden">Admin Panel</a>
+                    <a href="#" id="nav-history" class="hidden">History</a>
+                </div>
+
+                <div class="nav-actions">
+                    <div class="auth-buttons" id="nav-auth">
+                        <button class="btn btn-outline" id="btn-login">Log In</button>
+                        <button class="btn btn-primary" id="btn-signup">Sign Up</button>
+                    </div>
+                    <div class="user-menu hidden" id="nav-user">
+                        <span class="user-greeting">Hi, <span id="user-name-display">User</span></span>
+                        <button class="btn btn-outline btn-sm" id="btn-logout">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="main-content">
+            <!-- Sections will be injected/toggled here -->
+
+            <!-- Home Section -->
+            <section id="section-home" class="view-section active">
+                <div class="dashboard-hero">
+                    <h1>Find Your Perfect Companion</h1>
+                    <p>Buy &amp; Sell Pets &bull; Trusted by Pet Lovers &bull; Many Pets Available</p>
+                </div>
+
+                <div class="demo-section" id="demoSection">
+                    <h2 class="demo-title">Featured Pets</h2>
+                    <div class="demo-grid">
+                        <div class="demo-card">
+                            <div class="demo-image">
+                                <img src="https://tse4.mm.bing.net/th/id/OIP.vs_d1C-7n4PoNv0GVlaVDwHaFj?rs=1&pid=ImgDetMain&o=7&rm=3"
+                                    alt="Rocky">
+                            </div>
+                            <div class="demo-content">
+                                <h3>Lovely pets</h3>
+                                <p>Premium Companions</p>
+                            </div>
+                        </div>
+                        <div class="demo-card">
+                            <div class="demo-image">
+                                <img src="https://tse3.mm.bing.net/th/id/OIP.Afq8_E_Klz-tqfmp4D7SogHaE7?rs=1&pid=ImgDetMain&o=7&rm=3"
+                                    alt="Charlie">
+                            </div>
+                            <div class="demo-content">
+                                <h3>cute kittens</h3>
+                                <p>heartwarming cats</p>
+                            </div>
+                        </div>
+                        <div class="demo-card">
+                            <div class="demo-image">
+                                <img src="https://tse1.mm.bing.net/th/id/OIP.sVwvs-zW870pseje8lWU2AHaE8?rs=1&pid=ImgDetMain&o=7&rm=3"
+                                    alt="Bheeshma">
+                            </div>
+                            <div class="demo-content">
+                                <h3>Race oriented bulls</h3>
+                                <p>Pure breeds from all over india</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 2rem; color: #888;">Login to view full details and make
+                        purchases</p>
+                </div>
+
+                <div id="home-dashboard-content" class="hidden">
+                    <div class="dashboard-banner">
+                        <h2>Welcome!</h2>
+                        <p>Ready to find your perfect pet?</p>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="dash-card" onclick="window.location.hash='#gallery'">
+                            <div class="dash-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                            <h3>Buy a Pet</h3>
+                            <p>Browse adorable pets for adoption</p>
+                        </div>
+                        <div class="dash-card" onclick="window.location.hash='#add-pet'">
+                            <div class="dash-icon"><i class="fa-solid fa-tag"></i></div>
+                            <h3>Sell a Pet</h3>
+                            <p>List your pet and find loving homes</p>
+                        </div>
+                        <div class="dash-card" onclick="window.location.hash='#my-listings'">
+                            <div class="dash-icon"><i class="fa-solid fa-chart-line"></i></div>
+                            <h3>My Listings</h3>
+                            <p>View and manage your listings</p>
+                        </div>
+                        <div class="dash-card" onclick="window.location.hash='#my-favorites'">
+                            <div class="dash-icon"><i class="fa-solid fa-heart" style="color: #F44369;"></i></div>
+                            <h3>My Favorites</h3>
+                            <p>Access your saved dream pets</p>
+                        </div>
+                        <div class="dash-card" onclick="window.location.hash='#history'">
+                            <div class="dash-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                            <h3>My Purchases</h3>
+                            <p>Track your purchase history</p>
+                        </div>
+                        <div class="dash-card" id="dash-card-admin" onclick="window.location.hash='#admin'"
+                            style="display: none; background: linear-gradient(135deg, #1a1114, #0f0a0c); border: 1px solid rgba(26, 101, 158, 0.4); box-shadow: 0 8px 24px rgba(26, 101, 158, 0.2);">
+                            <div class="dash-icon" style="color: var(--primary-color);"><i
+                                    class="fa-solid fa-shield-halved"></i></div>
+                            <h3 style="color: white;">Admin Panel</h3>
+                            <p style="color: rgba(255,255,255,0.7);">Manage users, listings & analytics</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Auth Section -->
+            <section id="section-auth" class="view-section hidden">
+                <div class="auth-container">
+                    <div class="auth-card">
+                        <h2 id="auth-title">Log In</h2>
+                        <form id="auth-form">
+                            <div class="form-group signup-only hidden">
+                                <label for="auth-name">Full Name</label>
+                                <input type="text" id="auth-name" placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="auth-email">Email Address</label>
+                                <input type="email" id="auth-email" required placeholder="name@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="auth-password">Password</label>
+                                <input type="password" id="auth-password" required placeholder="••••••••">
+                            </div>
+                            <div style="text-align: right; margin-top: -0.5rem; margin-bottom: 1rem; font-size: 0.85rem;"
+                                class="login-only">
+                                <a href="#" onclick="showToast('Password reset link sent to your email!', 'success')"
+                                    style="color: var(--primary-color);">Forgot Password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block" id="btn-submit-auth">Log In</button>
+                        </form>
+                        <p class="auth-switch">
+                            <span id="auth-switch-text">Don't have an account?</span>
+                            <a href="#" id="auth-switch-link">Sign Up</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="section-gallery" class="view-section hidden">
+                <div class="gallery-header-row"
+                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; color: white;">Find Your Perfect Pet</h2>
+                    <button class="btn-gallery-back" onclick="window.location.hash='#home'"><i
+                            class="fa-solid fa-arrow-left"></i> Back</button>
+                </div>
+
+                <div class="search-bar-container" style="flex-wrap: wrap; gap: 1rem;">
+                    <div
+                        style="display:flex; flex:1; min-width: 250px; align-items:center; background: var(--card-bg); border-radius: 8px; padding: 0 1rem; border: 1px solid var(--border-color);">
+                        <i class="fa-solid fa-magnifying-glass search-icon"
+                            style="position:static; margin-right:0.5rem; transform:none; color:var(--text-muted);"></i>
+                        <input type="text" id="search-input" class="search-input"
+                            style="padding-left:0; border:none; background:transparent;"
+                            placeholder="Search name, type or breed...">
+                    </div>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <select id="filter-type" class="search-select" style="min-width: 140px;">
+                            <option value="">All Breeds</option>
+                            <option value="dog">Dog</option>
+                            <option value="cat">Cat</option>
+                            <option value="cow">Cow</option>
+                            <option value="bull">Bull</option>
+                            <option value="rabbit">Rabbit</option>
+                        </select>
+                        <select id="filter-age" class="search-select" style="min-width: 120px;">
+                            <option value="">All Ages</option>
+                            <option value="baby">Baby (&lt;1 yr)</option>
+                            <option value="adult">Adult (1+ yrs)</option>
+                        </select>
+                        <div style="display:flex; align-items:center; gap: 0.5rem;">
+                            <input type="number" id="filter-min-price" placeholder="Min ₹"
+                                style="width: 100px; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-main);">
+                            <span style="color:var(--text-muted)">-</span>
+                            <input type="number" id="filter-max-price" placeholder="Max ₹"
+                                style="width: 100px; padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-main);">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-search" id="btn-search">Search</button>
+                    <button class="btn btn-muted btn-reset" id="btn-reset"
+                        onclick="document.getElementById('search-input').value=''; document.getElementById('filter-type').value=''; document.getElementById('filter-age').value=''; document.getElementById('filter-min-price').value=''; document.getElementById('filter-max-price').value=''; renderGallery();">Reset</button>
+                </div>
+
+                <!-- The Grid -->
+                <div class="pet-grid" id="pet-grid">
+                    <!-- Pets mapped here -->
+                </div>
+
+                <!-- Detailed Info BELOW the grid -->
+                <div id="pet-detail-container" class="pet-detail-container hidden">
+                    <!-- Details mapped here -->
+                </div>
+            </section>
+
+            <!-- Add/Edit Pet Section -->
+            <section id="section-pet-form" class="view-section hidden">
+                <div class="form-container">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
+                        <h2 style="margin:0;">Post a Pet Listing</h2>
+                        <button class="btn-gallery-back"
+                            onclick="window.history.length > 1 ? window.history.back() : window.location.hash='#home'"><i
+                                class="fa-solid fa-arrow-left"></i> Back</button>
+                    </div>
+                    <form id="pet-listing-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Pet Name</label>
+                                <input type="text" id="pet-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Type</label>
+                                <input type="text" id="pet-type" placeholder="e.g. Dog, Cat, Bird" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Breed</label>
+                                <input type="text" id="pet-breed" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Price (₹)</label>
+                                <input type="number" id="pet-price" min="0" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Age (Years/Months)</label>
+                                <input type="text" id="pet-age" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <select id="pet-gender" required>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Unknown">Unknown</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Weight (kg)</label>
+                                <input type="number" step="0.1" id="pet-weight" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Height (cm)</label>
+                                <input type="number" step="0.1" id="pet-height" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" id="pet-location" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Recommended Diet</label>
+                            <input type="text" id="pet-diet" placeholder="(Optional)">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="pet-desc" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group" style="margin-top:2rem;">
+                            <h3 style="margin-bottom:1rem; color:var(--primary-color);">Seller Contact Info</h3>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" id="pet-seller-phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label>WhatsApp Number *</label>
+                                <input type="tel" id="pet-seller-whatsapp" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email (Optional)</label>
+                                <input type="email" id="pet-seller-email">
+                            </div>
+                            <div class="form-group">
+                                <label>Instagram (Optional)</label>
+                                <input type="text" id="pet-seller-instagram" placeholder="@username">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label>Photos/Videos (Max 10)</label>
+                            <div id="media-drop-zone" class="upload-drop-zone">
+                                <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                                <div class="upload-text">Click to upload images or videos</div>
+                                <div class="upload-subtext">JPG, PNG, MP4 (Max 10 files)</div>
+                                <input type="file" id="pet-media" accept="image/*,video/*" multiple hidden>
+                            </div>
+                            <div id="media-preview-grid" class="preview-grid"></div>
+                            <div id="media-preview-grid" class="preview-grid" style="width: 100%;"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 1rem;">Publish
+                            Listing</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Cart / Checkout Section -->
+            <section id="section-cart" class="view-section hidden">
+                <div class="cart-container">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
+                        <h2 style="margin:0;">Shopping Cart</h2>
+                        <button class="btn-gallery-back"
+                            onclick="window.history.length > 1 ? window.history.back() : window.location.hash='#home'"><i
+                                class="fa-solid fa-arrow-left"></i> Back</button>
+                    </div>
+                    <div class="cart-content">
+                        <div class="cart-items" id="cart-items-container">
+                            <!-- Items appear here -->
+                        </div>
+                        <div class="cart-summary">
+                            <h3>Order Summary</h3>
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="cart-subtotal">$0.00</span>
+                            </div>
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <span id="cart-total">$0.00</span>
+                            </div>
+
+                            <div class="checkout-actions">
+                                <h4>Checkout via:</h4>
+                                <div class="payment-methods">
+                                    <button class="btn btn-outline pay-btn" data-method="PhonePe">PhonePe</button>
+                                    <button class="btn btn-outline pay-btn" data-method="GPay">GPay</button>
+                                    <button class="btn btn-outline pay-btn" data-method="Paytm">Paytm</button>
+                                    <button class="btn btn-primary pay-btn" data-method="COD">Cash On Delivery</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Panel -->
+            <section id="section-admin" class="view-section hidden"
+                style="background-color: #0f0a0c; color: white; min-height: 100vh; padding: 2rem;">
+                <div class="admin-container"
+                    style="max-width: 900px; margin: 0 auto; background: #1a1114; border-radius: 12px; padding: 2.5rem; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 3rem;">
+                        <h2
+                            style="margin:0; font-size: 2.2rem; display:flex; align-items:center; gap: 0.75rem; font-weight: 800;">
+                            <i class="fa-solid fa-shield-halved"></i> Admin Panel
+                        </h2>
+                        <button class="btn"
+                            onclick="window.history.length > 1 ? window.history.back() : window.location.hash='#home'"
+                            style="background: transparent; border: 1px solid #E63946; color: white; padding: 0.4rem 1.2rem; border-radius: 6px; font-weight: bold; cursor: pointer;">Close</button>
+                    </div>
+
+                    <div class="admin-tabs"
+                        style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1.5rem;">
+                        <button class="admin-tab-btn active" data-target="admin-users">Users</button>
+                        <button class="admin-tab-btn" data-target="admin-pets">Pets</button>
+                        <button class="admin-tab-btn" data-target="admin-orders">Analytics</button>
+                    </div>
+
+                    <div id="admin-users" class="admin-tab-content active">
+                        <div id="admin-users-list" style="display: flex; flex-direction: column;"></div>
+                    </div>
+
+                    <div id="admin-pets" class="admin-tab-content hidden">
+                        <div id="admin-pets-list" style="display: flex; flex-direction: column;"></div>
+                    </div>
+
+                    <div id="admin-orders" class="admin-tab-content hidden">
+                        <div class="stats-grid" style="margin-bottom: 2rem;">
+                            <div class="stat-card"
+                                style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                                <h3 style="color: rgba(255,255,255,0.7);">Total Users</h3>
+                                <p id="stat-users" style="color: white;">0</p>
+                            </div>
+                            <div class="stat-card"
+                                style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                                <h3 style="color: rgba(255,255,255,0.7);">Total Pets Sold</h3>
+                                <p id="stat-sold" style="color: white;">0</p>
+                            </div>
+                            <div class="stat-card"
+                                style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+                                <h3 style="color: rgba(255,255,255,0.7);">Platform Revenue</h3>
+                                <p id="stat-revenue" style="color: white;">₹0</p>
+                            </div>
+                        </div>
+
+                        <div
+                            style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                            <h3 style="margin-bottom: 1rem; color: white;">30-Day Revenue Trend</h3>
+                            <canvas id="revenueChart" style="width: 100%; max-height: 250px;"></canvas>
+                        </div>
+
+                        <h3 style="margin-bottom: 1rem;">Completed Transactions</h3>
+                        <div id="admin-orders-list" style="display: flex; flex-direction: column;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="section-history" class="view-section hidden">
+                <div class="history-container">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
+                        <h2 style="margin:0;">Your Purchase History</h2>
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <button class="btn"
+                                style="background: transparent; border: 1px solid #E63946; color: #E63946; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-weight: bold;"
+                                onclick="clearPurchaseHistory()">Clear History</button>
+                            <button class="btn-gallery-back"
+                                onclick="window.history.length > 1 ? window.history.back() : window.location.hash='#home'"><i
+                                    class="fa-solid fa-arrow-left"></i> Back</button>
+                        </div>
+                    </div>
+                    <div id="purchase-history-list" class="history-list">
+                        <!-- History injected here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Review Modal -->
+    <div id="review-modal" class="modal hidden"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; display:none; justify-content:center; align-items:center;">
+        <div class="modal-content"
+            style="width: 90%; max-width: 400px; background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+            <h3 style="margin-top:0; color: white;">Rate Seller</h3>
+            <div class="star-rating" id="star-rating-input"
+                style="font-size: 2.5rem; color: #FFB703; cursor: pointer; margin: 1rem 0; text-align: center; display:flex; justify-content:center; gap:0.5rem;">
+                <i class="fa-regular fa-star" data-val="1"></i>
+                <i class="fa-regular fa-star" data-val="2"></i>
+                <i class="fa-regular fa-star" data-val="3"></i>
+                <i class="fa-regular fa-star" data-val="4"></i>
+                <i class="fa-regular fa-star" data-val="5"></i>
+            </div>
+            <textarea id="review-comment" rows="3" placeholder="Share your experience (optional)..."
+                style="width:100%; margin-bottom: 1.5rem; border-radius:8px; padding:0.8rem; background: rgba(255,255,255,0.05); color:white; border: 1px solid var(--border-color);"></textarea>
+            <input type="hidden" id="review-target-seller">
+            <input type="hidden" id="review-rating-value" value="0">
+            <div style="display:flex; gap: 1rem;">
+                <button class="btn btn-muted" onclick="document.getElementById('review-modal').style.display='none'"
+                    style="flex:1;">Cancel</button>
+                <button class="btn btn-primary" onclick="submitReview()" style="flex:1;">Submit Review</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="toast hidden">
+        <span id="toast-message">Notification message</span>
+    </div>
+
+    <!-- Floating Cart -->
+    <div id="floating-cart" class="floating-cart" onclick="window.location.hash='#cart'">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-count">0</span>
+    </div>
+
+    <!-- Full Screen Media Modal -->
+    <div id="media-modal" class="modal hidden"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:10000; display:none; justify-content:center; align-items:center; cursor: zoom-out;"
+        onclick="closeFullScreenMedia()">
+        <span
+            style="position:absolute; top:20px; right:30px; color:white; font-size:40px; font-weight:bold; cursor:pointer;"
+            onclick="closeFullScreenMedia()">&times;</span>
+        <div id="media-modal-content"
+            style="max-width:90%; max-height:90%; display:flex; justify-content:center; align-items:center;">
+            <!-- Media injected here -->
+        </div>
+    </div>
+
+
+
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics-compat.js"></script>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
